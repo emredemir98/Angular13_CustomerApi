@@ -1,0 +1,77 @@
+<form >
+    <div class="mb-3">
+      <label for="firstName " class="form-label required ">FirstName</label>
+      <input type="text" class="form-control"  maxlength="30" [(ngModel)]="firstName" name="firstName" 
+      required #name="ngModel" [class.is-invalid]="name.invalid && name.touched">
+      <small class="text-danger" [class.d-none]="name.valid || name.untouched">Name is required</small>
+    </div>
+    <div class="mb-3">
+      <label for="lastName" class="form-label required ">LastName</label>
+      <input type="text" class="form-control" maxlength="30" [(ngModel)]="lastName" name="lastName"
+      required #lastname="ngModel" [class.is-invalid]="lastname.invalid && lastname.touched">
+      <small class="text-danger" [class.d-none]="lastname.valid || lastname.untouched">lastName is required</small>
+    </div>
+    <div class="mb-3">
+      <label for="tcNo" class="form-label required " >TcNo</label>
+      <input type="text" class="form-control" maxlength="11" [(ngModel)]="tcNo" name="tcNo"
+      required #tc="ngModel" [class.is-invalid]="tc.invalid && tc.touched">
+      <small class="text-danger" [class.d-none]="tc.valid || tc.untouched">tcNo is required</small>
+    </div>
+    <div class="mb-3">
+      <div class="mb-3">
+        <label for="email" class="form-label required ">Email</label>
+        <input type="text" class="form-control" maxlength="30" [(ngModel)]="email" name="email"
+        required #mail="ngModel" [class.is-invalid]="mail.invalid && mail.touched">
+      <small class="text-danger" [class.d-none]="mail.valid || mail.untouched">email is required</small>
+      </div>
+    </div>
+    <div class="mb-3">
+      <div class="mb-3">
+        <label for="telNo" class="form-label required ">TelNo</label>
+        <input type="text" class="form-control" maxlength="11" [(ngModel)]="telNo" name="telNo"
+        required #tel="ngModel" [class.is-invalid]="tel.invalid && tel.touched">
+        <small class="text-danger" [class.d-none]="tel.valid || tel.untouched">TelNo is required</small>
+      </div>
+    </div>
+    <div class="mb-3">
+      <div class="mb-3">
+        <label for="telNo2" class="form-label">TelNo2</label>
+        <input type="text" class="form-control" maxlength="11" [(ngModel)]="telNo2" name="telNo2">
+      </div>
+    </div>
+    <div class="mb-3">
+      <div class="mb-3">
+        <label for="city" class="form-label required ">City</label>
+        <input type="text" class="form-control" maxlength="30" [(ngModel)]="city" name="city"
+        required #cit="ngModel" [class.is-invalid]="cit.invalid && cit.touched">
+        <small class="text-danger" [class.d-none]="cit.valid || cit.untouched">City is required</small>
+      </div>
+    </div>
+   
+      <div class="mb-3">
+      <label for="genderId" class="form-label required">Gender Type</label>
+    
+      <select class="form-control" name="genderId" id="genderId" [(ngModel)]="genderId" >
+        <option *ngFor="let type of customerTypesList$|async" [value]="type.id">{{type.genOption}}</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <div class="mb-3">
+        <label for="adress" class="form-label required">Adress</label>
+        <input type="text" class="form-control" [(ngModel)]="adress" name="adress">
+      </div>
+    </div>
+    <div class="mb-3">
+      <div class="mb-3">
+        <label for="adress2" class="form-label">Adress2</label>
+        <input type="text" class="form-control" [(ngModel)]="adress2" name="adress2">
+      </div>
+    </div>
+    <button (click)="addCustomer()" *ngIf="customer.id==0" class="btn btn-primary">
+      Add
+    </button>
+    <button (click)="updateCustomer()" *ngIf="customer.id!=0" class="btn btn-primary">
+      Update
+    </button>
+  </form>
+  
